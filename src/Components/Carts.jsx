@@ -98,19 +98,19 @@ const Carts = () => {
     localStorage.removeItem('cartList');
   }
   useEffect(()=>{
-    const totalPrice = items.reduce((sum, item) => sum + item.price, 0);
+    const totalPrice = items.reduce((sum, item) => sum + (item.price || 0), 0);
     setSum(totalPrice);
   },[items])
 
   return (
     <div id="mainContainer" className="w-[90vw] mx-auto space-y-3 mt-4">
       <div className="flex items-center justify-between">
-        <h3 className="text-xl font-bold">Cart</h3>
-        <div className="flex items-center gap-10">
+        <h3 className="text-base md:text-xl font-bold">Cart</h3>
+        <div className="flex items-center gap-2 md:gap-10">
           <h4 className="text-base font-bold">Total Price: {sum}</h4>
           <div>
           <div className="dropdown dropdown-start">
-            <div tabIndex={0} role="button" className="btn m-1 border border-[#9538E2] text-[#9538E2]">
+            <div tabIndex={0} role="button" className="btn btn-xs md:btn-md m-1 border border-[#9538E2] text-[#9538E2]">
               {`${sortText ? `Sort By ${sortText}`:'Sort'}`} <PiSlidersBold></PiSlidersBold>
             </div>
             <ul
@@ -129,9 +129,9 @@ const Carts = () => {
               </li>
             </ul>
           </div>
-          <button onClick={openModal} className="btn rounded-full bg-[#9538E2] text-white">Purchase</button>
+          <button onClick={openModal} className="btn btn-xs md:btn-md rounded-full bg-[#9538E2] text-white">Purchase</button>
           <Modal
-          className={`w-[400px] h-96 absolute left-[32%] top-[20%] bg-white rounded-lg p-2`}
+          className={`w-[400px] h-96 absolute left-[7%] top-[20%] md:left-[32%] lg:top-[20%] bg-white rounded-lg p-2`}
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Example Modal"

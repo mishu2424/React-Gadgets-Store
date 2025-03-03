@@ -55,7 +55,7 @@ const Navbar = ({ path }) => {
   return (
     <nav className={`w-[90vw] mx-auto mt-2 ${(path === "/dashboard" || path === "/statistics") && "mb-2"}`}>
       <div
-        className={`navbar shadow-sm px-40 text-black ${
+        className={`navbar shadow-sm lg:px-40 text-black ${
           (path === "/" ||
             path === "/laptops" ||
             path === "/accessories" ||

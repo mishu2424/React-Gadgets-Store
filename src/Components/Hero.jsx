@@ -8,10 +8,10 @@ const Hero = ({ address, message, des }) => {
   return (
     <section className={`w-[90vw] mx-auto bg-[#9538E2] text-white rounded-b-md py-16 ${address==='stats' && 'py-10 h-[320px] rounded-t-md'}`}>
       <div className={`container mx-auto flex flex-col  text-center xl:max-w-2xl space-y-3 ${address!=='stats' && 'md:py-32 py-16'}`}>
-        <h1 className="lg:text-4xl font-bold leading-none text-xl">
+        <h1 className="lg:text-4xl font-bold leading-none text-base">
           {message}
         </h1>
-        <p className="text-base">{des}</p>
+        <p className="text-xs md:text-base px-2">{des}</p>
         {address === "home" && (
           <div className="flex flex-wrap justify-center">
             <button

@@ -7,6 +7,8 @@ import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 import { TiShoppingCart } from "react-icons/ti";
 import { GiSelfLove } from "react-icons/gi";
 import { addToStorage } from "../utility/localStorage";
+import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 const GadgetDetails = () => {
   const params = useParams();
   console.log(params.id);
@@ -19,8 +21,14 @@ const GadgetDetails = () => {
     addToStorage(id,list);
   }
 
+  useEffect(()=>{
+    document.title=`Gadget | ${selectedGadget?.product_title}`
+  },[])
   return (
     <div className="">
+      <Helmet>
+        <title>Gadget | {selectedGadget?.product_title}</title>
+      </Helmet>
       <Hero
         message="Product Details"
         des="Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!"
