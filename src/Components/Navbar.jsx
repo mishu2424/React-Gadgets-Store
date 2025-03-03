@@ -2,15 +2,9 @@ import { TiShoppingCart } from "react-icons/ti";
 import { NavLink, useNavigate } from "react-router-dom";
 import { GiSelfLove } from "react-icons/gi";
 import { useEffect, useState } from "react";
-import { getStoredCart } from "../utility/localStorage";
-const Navbar = ({ path }) => {
-  const [carts, setCarts] = useState([]);
+const Navbar = ({ path, carts }) => {
   const navigate = useNavigate();
   let [theme, setTheme] = useState("light");
-  useEffect(() => {
-    const getCarts = getStoredCart("cartList");
-    setCarts(getCarts);
-  }, []);
 
   const handleGoToDashboard=()=>{
     navigate('/dashboard', {state: {section: 'cartlist'}});

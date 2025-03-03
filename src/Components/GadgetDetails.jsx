@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Hero from "./Hero";
 // import ReactStars from "react-rating-stars-component";
 import ReactStars from "react-rating-stars-component";
@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 const GadgetDetails = () => {
   const params = useParams();
+  const navigate = useNavigate();
   console.log(params.id);
   const gadgets = useLoaderData();
   const selectedGadget = gadgets.find(
@@ -19,6 +20,13 @@ const GadgetDetails = () => {
   console.log(selectedGadget);
   const handleStoredCarts=(id,list)=>{
     addToStorage(id,list);
+    if(list==='cartList'){
+      navigate('/dashboard', {state: {section: 'cartlist'}});
+    }else if(list==='wishList'){
+      navigate('/dashboard/wish', {state: {section: 'wishlist'}});
+    }
+    // navigate('/dashboard',{state : {section: "cartlist"}})
+    // navigate('/dashboard')
   }
 
   useEffect(()=>{

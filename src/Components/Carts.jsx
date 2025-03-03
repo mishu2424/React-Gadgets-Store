@@ -92,6 +92,8 @@ const Carts = () => {
     const remainingData = items.filter((item) => item.product_id !== id);
     setItems(remainingData);
     removeItem(id, list);
+    navigate('/dashboard',{state: {section: 'cartList'}});
+    console.log('hello');
   };
 
   const removeDataFromCarts=()=>{

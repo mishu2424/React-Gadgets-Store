@@ -6,13 +6,13 @@ import { Helmet } from "react-helmet";
 const Dashboard = () => {
   const [tabIndex, setTabIndex] = useState(0);
   useEffect(()=>{
-    document.title='Dashboard'
+    document.title=`Dashboard | ${tabIndex===0 ? 'Cartlist' : 'Wishlist'}`
   },[])
   const location = useLocation();
   useEffect(()=>{
     if(location.state?.section==='wishlist'){
       setTabIndex(1);
-      console.log('entered dash')
+      // console.log('entered dash')
     }else if(location.state?.section==='cartlist'){
       setTabIndex(0);
     }
