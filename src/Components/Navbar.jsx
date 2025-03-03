@@ -14,14 +14,14 @@ const Navbar = ({ path }) => {
     <>
       <NavLink
         to="/"
-        className={({ isActive }) => isActive ? "font-bold underline" : `${theme==='night' && 'text-white'}`}
+        className={({ isActive }) => isActive ? "font-bold underline text-white" : `${theme==='night' ? 'lg:text-white' : 'text-black'}`}
       >
         Home
       </NavLink>
       <NavLink
         to="/statistics"
         className={({ isActive }) =>
-          isActive ? "font-bold underline text-[#9538E2]" : `${theme==='night' && 'text-white'}`
+          isActive ? "font-bold underline text-white lg:text-purple-500" : `${theme==='night' ? 'text-white' : `text-black ${path==='/' && `lg:text-white`}` }`
         }
       >
         Statistics
@@ -29,7 +29,7 @@ const Navbar = ({ path }) => {
       <NavLink
         to="/dashboard"
         className={({ isActive }) =>
-          isActive ? "font-bold underline text-[#9538E2]" : `${theme==='night' && 'text-white'}`
+          isActive ? "font-bold underline text-white lg:text-purple-500" : `${theme==='night' ? 'text-white' : `text-black ${path==='/' && `lg:text-white`}` }`
         }
       >
         Dashboard
@@ -55,7 +55,7 @@ const Navbar = ({ path }) => {
   return (
     <nav className={`w-[90vw] mx-auto mt-2 ${(path === "/dashboard" || path === "/statistics") && "mb-2"}`}>
       <div
-        className={`navbar shadow-sm lg:px-40 text-black ${
+        className={`navbar shadow-sm lg:px-40  ${
           (path === "/" ||
             path === "/laptops" ||
             path === "/accessories" ||
@@ -70,7 +70,7 @@ const Navbar = ({ path }) => {
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className={`h-5 w-5 ${theme==='night' && 'text-white'}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -86,7 +86,7 @@ const Navbar = ({ path }) => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content gap-4 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content gap-4 rounded-box z-1 mt-3 w-52 p-2 shadow bg-transparent"
             >
               {links}
             </ul>

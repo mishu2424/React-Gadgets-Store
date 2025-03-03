@@ -23,10 +23,10 @@ const Category = () => {
     }, 2000);
   }, [gadgets,category]);
   return (
-    <div>
+    <div className="my-3">
       {loading === true ? (
         <BeatLoader
-          className="mx-auto absolute left-1/2"
+          className="mx-auto absolute left-[45%] md:left-1/2"
           color="red"
           size={20}
         />
