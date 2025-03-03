@@ -3,7 +3,7 @@ import { BeatLoader } from "react-spinners";
 const LoadingSpinner = () => {
     return (
         <div>
-            <BeatLoader />
+            <BeatLoader color="red" size={100}/>
         </div>
     );
 };

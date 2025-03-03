@@ -20,6 +20,8 @@ import { Toaster } from 'react-hot-toast';
 import ErrorPage from './Components/ErrorPage.jsx';
 import Macbook from './Components/Macbook.jsx';
 import Iphone from './Components/Iphone.jsx';
+import Category from './Components/Category.jsx';
+// import { HelmetProvider } from 'react-helmet-async';
 const router = createBrowserRouter([
   {
     path:'/',
@@ -37,25 +39,30 @@ const router = createBrowserRouter([
             loader:()=>fetch('/gadgets.JSON'),
           },
           {
-            path:'laptops',
-            element:<Laptops></Laptops>,
+            path:':category',
+            element:<Category></Category>,
             loader:()=>fetch('/gadgets.JSON'),
           },
-          {
-            path:'smartphones',
-            element:<Smartphones></Smartphones>,
-            loader:()=>fetch('/gadgets.JSON'),
-          },
-          {
-            path:'accessories',
-            element:<Accessories></Accessories>,
-            loader:()=>fetch('/gadgets.JSON'),
-          },
-          {
-            path:'iphone',
-            element:<Iphone></Iphone>,
-            loader:()=>fetch('/gadgets.JSON')
-          },
+          // {
+          //   path:'laptops',
+          //   element:<Laptops></Laptops>,
+          //   loader:()=>fetch('/gadgets.JSON'),
+          // },
+          // {
+          //   path:'smartphones',
+          //   element:<Smartphones></Smartphones>,
+          //   loader:()=>fetch('/gadgets.JSON'),
+          // },
+          // {
+          //   path:'accessories',
+          //   element:<Accessories></Accessories>,
+          //   loader:()=>fetch('/gadgets.JSON'),
+          // },
+          // {
+          //   path:'iphone',
+          //   element:<Iphone></Iphone>,
+          //   loader:()=>fetch('/gadgets.JSON')
+          // },
           {
             path:'macbook',
             element:<Macbook></Macbook>,
@@ -66,6 +73,7 @@ const router = createBrowserRouter([
       {
         path:'/statistics',
         element:<Statistics></Statistics>,
+        loader:()=>fetch('/gadgets.JSON'),
       },
       {
         path:'/dashboard',
@@ -93,7 +101,9 @@ const router = createBrowserRouter([
 ])
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    {/* <HelmetProvider> */}
     <RouterProvider router={router}></RouterProvider>
     <Toaster></Toaster>
+    {/* </HelmetProvider> */}
   </StrictMode>,
 )

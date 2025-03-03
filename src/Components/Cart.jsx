@@ -7,6 +7,7 @@ const Cart = ({cart, handleRemoveFromCartList, handleRemoveFromWishList, button}
     const [disable, setDisable]=useState(false);
     const handleStoredCarts=(id,list)=>{
       addToStorage(id,list);
+      handleRemoveFromWishList(id,'wishList');
     }
   return (
     <div className="card card-side bg-base-100 shadow-sm p-2 space-x-3">

@@ -13,6 +13,9 @@ const Carts = () => {
   const gadgets = useLoaderData();
   const navigate = useNavigate();
 
+  const handleShopNow=()=>{
+    navigate('/',{state: {section: "gadgets"}});
+  }
 
   // Steps to add react modal ->
   // install react-modal using ->npm install --save react-modal
@@ -149,13 +152,29 @@ const Carts = () => {
         </div>
       </div>
       <div className="space-y-3">
-        {items.map((cart) => (
-          <Cart
-            key={cart.product_id}
-            cart={cart}
-            handleRemoveFromCartList={handleRemoveFromCartList}
-          ></Cart>
-        ))}
+        {
+          items.length>0 && items.map((cart) => (
+            <Cart
+              key={cart.product_id}
+              cart={cart}
+              handleRemoveFromCartList={handleRemoveFromCartList}
+            ></Cart>
+          ))
+        }
+        {
+          !items.length && (
+            <div className="flex flex-wrap justify-center">
+              <button
+              onClick={handleShopNow}
+                className="px-8 py-3 m-2 text-lg font-bold rounded-full bg-purple-600 text-white cursor-pointer hover:bg-violet-800 hover:text-white duration-150"
+                fdprocessedid="jeii8a"
+              >
+                Shop Now
+              </button>
+              
+            </div>
+          )
+        }
       </div>
     </div>
   );

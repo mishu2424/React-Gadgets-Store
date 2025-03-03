@@ -2,10 +2,10 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import Gadget from "./Gadget";
 import Gadgets from "./Gadgets";
 
-const GadgetContainer = () => {
+const GadgetContainer = ({ref}) => {
   return (
-    <div className="space-y-8">
-      <h1 className="text-center font-bold text-3xl">
+    <div className="space-y-8" ref={ref}>
+      <h1 className="text-center font-bold text-3xl bg-gradient-to-r from-primary via-blue-500 to-secondary text-transparent bg-clip-text animate-gradient">
         Explore Cutting-Edge Gadgets
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] auto-rows-auto items-start my-3 gap-2 w-[90vw] mx-auto">
@@ -16,7 +16,7 @@ const GadgetContainer = () => {
                 isActive
                   ? "bg-purple-500 text-white rounded-full"
                   : "text-gray-700 border"
-              }`
+              } hover:text-white hover:bg-purple-500 border hover:border-purple-500 duration-150`
             }
             to=""
           >
@@ -29,7 +29,7 @@ const GadgetContainer = () => {
                 isActive
                   ? "bg-purple-500 text-white rounded-full"
                   : "text-gray-700 border"
-              }`
+              } hover:text-white hover:bg-purple-500 border hover:border-purple-500 duration-150`
             }
           >
             Laptops
@@ -41,7 +41,7 @@ const GadgetContainer = () => {
                 isActive
                   ? "bg-purple-500 text-white rounded-full"
                   : "text-gray-700 border"
-              }`
+              } hover:text-white hover:bg-purple-500 border hover:border-purple-500 duration-150`
             }
           >
             Smartphones
@@ -53,7 +53,7 @@ const GadgetContainer = () => {
                 isActive
                   ? "bg-purple-500 text-white rounded-full"
                   : "text-gray-700 border"
-              }`
+              } hover:text-white hover:bg-purple-500 border hover:border-purple-500 duration-150`
             }
           >
             Accessories
@@ -65,7 +65,7 @@ const GadgetContainer = () => {
                 isActive
                   ? "bg-purple-500 text-white rounded-full"
                   : "text-gray-700 border"
-              }`
+              } hover:text-white hover:bg-purple-500 border hover:border-purple-500 duration-150`
             }
           >
             Iphone
@@ -77,7 +77,7 @@ const GadgetContainer = () => {
                 isActive
                   ? "bg-purple-500 text-white rounded-full"
                   : "text-gray-700 border"
-              }`
+              } hover:text-white hover:bg-purple-500 border hover:border-purple-500 duration-150`
             }
           >
             MacBook

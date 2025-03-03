@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 const Gadget = ({ gadget }) => {
   const { product_id:id,product_title, product_image, price } = gadget;
   return (
-    <div className="w-auto md:max-w-xs rounded-lg border border-gray-200 shadow-md flex flex-col p-2 hover:scale-105 duration-200">
+    <div className="w-auto md:max-w-xs rounded-lg border border-gray-200 shadow-md flex flex-col p-2 border hover:border-primary hover:scale-105 duration-200">
       <img
         src={product_image}
         alt=""
-        className="object-cover object-center w-full rounded-t-md h-60 bg-gray-500"
+        className="object-cover object-center w-full rounded-md h-60 bg-gray-500"
       />
       <div className="flex flex-col justify-between space-y-8 flex-grow">
         <div className="space-y-2">

@@ -7,7 +7,7 @@ const Footer = () => {
         Your Gateway to Gadgets
         </p>
       </aside>
-      <div className="flex gap-28 text-center border-t-2 border-gray-300 py-7">
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-28 text-center border-t-2 border-gray-300 py-7">
       <nav className="flex flex-col opacity-85">
         <h6 className="font-bold opacity-100">Services</h6>
         <a className="link link-hover">Branding</a>
