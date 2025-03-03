@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import Hero from "../Components/Hero";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
@@ -8,6 +8,15 @@ const Dashboard = () => {
   useEffect(()=>{
     document.title='Dashboard'
   },[])
+  const location = useLocation();
+  useEffect(()=>{
+    if(location.state?.section==='wishlist'){
+      setTabIndex(1);
+      console.log('entered dash')
+    }else if(location.state?.section==='cartlist'){
+      setTabIndex(0);
+    }
+  },[location])
   return (
     <div>
       <Helmet>

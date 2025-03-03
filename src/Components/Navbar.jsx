@@ -1,15 +1,23 @@
 import { TiShoppingCart } from "react-icons/ti";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { GiSelfLove } from "react-icons/gi";
 import { useEffect, useState } from "react";
 import { getStoredCart } from "../utility/localStorage";
 const Navbar = ({ path }) => {
   const [carts, setCarts] = useState([]);
+  const navigate = useNavigate();
   let [theme, setTheme] = useState("light");
   useEffect(() => {
     const getCarts = getStoredCart("cartList");
     setCarts(getCarts);
   }, []);
+
+  const handleGoToDashboard=()=>{
+    navigate('/dashboard', {state: {section: 'cartlist'}});
+  }
+  const handleGoToWishlist=()=>{
+    navigate('/dashboard/wish', {state: {section: 'wishlist'}});
+  }
   const links = (
     <>
       <NavLink
@@ -98,13 +106,13 @@ const Navbar = ({ path }) => {
         </div>
         <div className="navbar-end gap-3 cursor-pointer">
           <div className="bg-white rounded-full p-2 text-black relative">
-            <TiShoppingCart></TiShoppingCart>
+            <TiShoppingCart onClick={handleGoToDashboard}></TiShoppingCart>
             <div className="px-1 rounded-full bg-white absolute right-0 -top-3">
               <sup className="font-bold text-red-500">{carts.length}</sup>
             </div>
           </div>
           <div className="bg-white rounded-full p-2 text-black">
-            <GiSelfLove></GiSelfLove>
+            <GiSelfLove onClick={handleGoToWishlist}></GiSelfLove>
           </div>
           <label className="toggle text-base-content">
             <input
